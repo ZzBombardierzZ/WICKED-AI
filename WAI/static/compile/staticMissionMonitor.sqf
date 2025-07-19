@@ -28,7 +28,12 @@ local _clear = false;
 local _running = true;
 local _time = diag_tickTime;
 local _text = "";
-local _markers = DZE_ServerMarkerArray select _markerIndex;
+local _markers = [];
+if (_enableMarkers) then {
+	_markers = DZE_ServerMarkerArray select _markerIndex;
+} else {
+	_markers = [];
+};
 local _aiCount = (WAI_MissionData select _mission) select 0;
 local _crates = (WAI_MissionData select _mission) select 2;
 local _aiVehicles = (WAI_MissionData select _mission) select 3;
